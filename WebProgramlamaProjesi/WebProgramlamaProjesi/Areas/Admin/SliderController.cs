@@ -1,8 +1,10 @@
-﻿using System;
+﻿using WebProgramlamaProjesi.Areas.Admin.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.IO;
 
 namespace WebProgramlamaProjesi.Areas.Admin
 {
@@ -14,11 +16,37 @@ namespace WebProgramlamaProjesi.Areas.Admin
         public ActionResult Index()
         {
             var model = db.Slider.OrderByDescending(x => x.SliderID).ToList();
-            return View();
+           return View(model);
         }
         public ActionResult Ekle()
         {
             return View();
+        }
+        const string imageFolderPath = "/Content/slider-images/";
+        public ActionResult SliderEkle(SliderModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                string fileName = string.Empty;
+                //Dosya kaydetme
+                if (model.Resim!=null &&model.Resim.ContentLength>0) {
+                    fileName = model.Resim.FileName;
+                    var path= Path.Combine(Server.MapPath("~"+imageFolderPath),fileName);
+                    model.Resim.SaveAs(path);
+                }
+                //EF nesnesi oluştur
+                Slider slider = new Slider();
+                slider.BaslangicTarih = model.BaslangicTarih;
+                slider.BitisTarih = model.BitisTarih;
+                slider.SliderBaslik = model.SliderBaslik;
+                slider.SliderAciklama = model.SliderAciklama;
+                slider.SliderResimYolu = imageFolderPath+fileName;
+                slider.SliderID = model.SliderID;
+
+                db.Slider.Add(slider);
+                db.SaveChanges();
+            }
+            return RedirectToAction("Index");
         }
 
     }

@@ -100,6 +100,8 @@
           <Property Name="SliderBaslik" Type="nvarchar(max)" />
           <Property Name="SliderAciklama" Type="nvarchar(max)" />
           <Property Name="SliderResimYolu" Type="nvarchar(max)" />
+          <Property Name="BaslangicTarih" Type="datetime" />
+          <Property Name="BitisTarih" Type="datetime" />
         </EntityType>
         <EntityType Name="Yorumlar">
           <Key>
@@ -355,6 +357,8 @@
           <Property Name="SliderBaslik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="SliderAciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="SliderResimYolu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BaslangicTarih" Type="DateTime" Precision="3" />
+          <Property Name="BitisTarih" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -465,6 +469,8 @@
           <EntitySetMapping Name="Slider">
             <EntityTypeMapping TypeName="TerapiModel.Slider">
               <MappingFragment StoreEntitySet="Slider">
+                <ScalarProperty Name="BitisTarih" ColumnName="BitisTarih" />
+                <ScalarProperty Name="BaslangicTarih" ColumnName="BaslangicTarih" />
                 <ScalarProperty Name="SliderResimYolu" ColumnName="SliderResimYolu" />
                 <ScalarProperty Name="SliderAciklama" ColumnName="SliderAciklama" />
                 <ScalarProperty Name="SliderBaslik" ColumnName="SliderBaslik" />

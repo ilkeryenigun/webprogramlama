@@ -19,5 +19,7 @@ namespace WebProgramlamaProjesi
         public string SliderBaslik { get; set; }
         public string SliderAciklama { get; set; }
         public string SliderResimYolu { get; set; }
+        public Nullable<System.DateTime> BaslangicTarih { get; set; }
+        public Nullable<System.DateTime> BitisTarih { get; set; }
     }
 }

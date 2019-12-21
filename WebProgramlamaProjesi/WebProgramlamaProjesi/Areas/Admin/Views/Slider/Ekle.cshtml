@@ -1,12 +1,79 @@
-﻿@model WebProgramlamaProjesi.Slider
+﻿@model WebProgramlamaProjesi.Areas.Admin.Models.SliderModel
 
 @{
     ViewBag.Title = "Ekle";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
- 
-@using (Html.BeginForm())
-{
 
 
-}
+    <section id="container">
+        <section id="main-content">
+            <section class="wrapper">
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            SLIDER EKLEME FORMU
+                        </header>
+                        <div class="panel-body">
+                            <div class="position-center">
+                                @using (Html.BeginForm("SliderEkle", "Slider", FormMethod.Post, new { @class = "form-horizontal",enctype="multipart/form-data" }))
+                                {
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.SliderBaslik, new { @class = "col-lg-2 col-sm-2 control-label" })
+                                        <div class="col-lg-10">
+                                            @Html.TextBoxFor(m => m.SliderBaslik, new { @class = "form-control", placeholder = "Başlık" })
+                                            <p class="help-block"></p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.SliderAciklama, new { @class = "col-lg-2 col-sm-2 control-label" })
+                                        <div class="col-lg-10">
+                                            @Html.TextBoxFor(m => m.SliderAciklama, new { @class = "form-control", placeholder = "Açıklama" })
+                                            <p class="help-block"></p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Resim, new { @class = "col-lg-2 col-sm-2 control-label" })
+                                        <div class="col-lg-10">
+                                            @Html.TextBoxFor(m => m.Resim, new { @class = "form-control", placeholder = "Resim",type="file" })
+                                            <p class="help-block"></p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.BaslangicTarih, new { @class = "col-lg-2 col-sm-2 control-label" })
+                                        <div class="col-lg-10">
+                                            @Html.TextBoxFor(m => m.BaslangicTarih, new { @class = "form-control", placeholder = "Başlangıç Tarihi", type = "date" })
+                                            <p class="help-block"></p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.BitisTarih, new { @class = "col-lg-2 col-sm-2 control-label" })
+                                        <div class="col-lg-10">
+                                            @Html.TextBoxFor(m => m.BitisTarih, new { @class = "form-control", placeholder = "Bitiş Tarihi", type = "date" })
+                                            <p class="help-block"></p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-2 col-lg-10">
+                                            <button type="submit" class="btn btn-danger">Slider Ekle</button>
+                                        </div>
+                                    </div>
+                                }
+                                <div class="form-group">
+                                    <div class="col-lg-offset-2 col-lg-10">
+                                        <button type="submit" class="btn btn-danger" onclick="location.href='@Url.Action("Index","Slider")'">Geri Dön</button>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                    </section>
+                </div>
+            </section>
+        </section>
+    </section>
+
+<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+<!--common script init for all pages-->
+<script src="js/scripts.js"></script>
+<!--this page script-->
+<script src="js/validation-init.js"></script>

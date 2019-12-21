@@ -171,6 +171,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\YonetimController.cs" />
+    <Compile Include="Areas\Admin\Models\SliderModel.cs" />
     <Compile Include="Areas\Admin\SliderController.cs" />
     <Compile Include="AspNetRoles.cs">
       <DependentUpon>TerapiModel.tt</DependentUpon>
@@ -1670,7 +1671,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\assets\js\calendar\src\" />
     <Folder Include="Areas\Admin\assets\js\file-uploader\server\php\files\thumbnail\" />
-    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Content\slider-images\" />
     <Folder Include="Views\Program\" />
   </ItemGroup>
   <ItemGroup>
