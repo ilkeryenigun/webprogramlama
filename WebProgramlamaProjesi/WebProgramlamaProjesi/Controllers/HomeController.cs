@@ -8,22 +8,33 @@ namespace WebProgramlamaProjesi.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Anasayfa()
         {
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Hakkimizda()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Programlar()
         {
-            ViewBag.Message = "Your contact page.";
+            return View();
+        }
 
+        public ActionResult Etkinlikler()
+        {
+            return View();
+        }
+
+        public ActionResult Blog()
+        {
+            return View();
+        }
+
+        public ActionResult Iletisim()
+        {
             return View();
         }
     }
