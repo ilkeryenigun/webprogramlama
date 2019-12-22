@@ -8,6 +8,7 @@ using System.IO;
 
 namespace WebProgramlamaProjesi.Areas.Admin
 {
+    [Authorize(Roles = "Admin")]
     public class SliderController : Controller
     {
 

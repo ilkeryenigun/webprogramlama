@@ -73,6 +73,17 @@
           <Property Name="OgretmenID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="OgretmenAdi" Type="nvarchar" MaxLength="100" />
           <Property Name="OgretmenDeneyimi" Type="nchar" MaxLength="10" />
+          <Property Name="OgretmenFotografYolu" Type="nvarchar(max)" />
+          <Property Name="OgretmenAlan" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="OrnekYazi">
+          <Key>
+            <PropertyRef Name="OrnekYaziID" />
+          </Key>
+          <Property Name="OrnekYaziID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrnekYaziBaslik" Type="nvarchar(max)" />
+          <Property Name="OrnekYaziAciklama" Type="nvarchar(max)" />
+          <Property Name="OrnekYaziVideoLink" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="ProgramKategorileri">
           <Key>
@@ -91,13 +102,13 @@
           <Property Name="KategoriID" Type="int" />
           <Property Name="OgretmenID" Type="int" />
           <Property Name="ProgramAdi" Type="nvarchar(max)" />
-          <Property Name="UstAciklama" Type="bigint" />
-          <Property Name="AltAciklama" Type="bigint" />
           <Property Name="AnaResimYolu" Type="nvarchar(max)" />
           <Property Name="AltResimYolu" Type="nvarchar(max)" />
           <Property Name="OgrenciSayisi" Type="int" />
           <Property Name="Ucret" Type="int" />
           <Property Name="ProgramSuresi" Type="nvarchar" MaxLength="15" />
+          <Property Name="UstAciklama" Type="nvarchar(max)" />
+          <Property Name="AltAciklama" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Slider">
           <Key>
@@ -110,6 +121,16 @@
           <Property Name="SliderResimYolu" Type="nvarchar(max)" />
           <Property Name="BaslangicTarih" Type="datetime" />
           <Property Name="BitisTarih" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TanitimYazilari">
+          <Key>
+            <PropertyRef Name="TanitimID" />
+          </Key>
+          <Property Name="TanitimID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TanitimBaslik" Type="nvarchar(max)" />
+          <Property Name="TanitimYazisi" Type="nvarchar(max)" />
+          <Property Name="Renk" Type="nvarchar(max)" />
+          <Property Name="ResimYolu" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Yorumlar">
           <Key>
@@ -212,6 +233,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Yorumlar_ToTable">
+          <End Role="Programlar" Type="Self.Programlar" Multiplicity="0..1" />
+          <End Role="Yorumlar" Type="Self.Yorumlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Programlar">
+              <PropertyRef Name="ProgramID" />
+            </Principal>
+            <Dependent Role="Yorumlar">
+              <PropertyRef Name="ProgramID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="TerapiModelStoreContainer">
           <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
@@ -220,9 +253,11 @@
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ogretmenler" EntityType="Self.Ogretmenler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrnekYazi" EntityType="Self.OrnekYazi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProgramKategorileri" EntityType="Self.ProgramKategorileri" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Programlar" EntityType="Self.Programlar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Slider" EntityType="Self.Slider" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TanitimYazilari" EntityType="Self.TanitimYazilari" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Yorumlar" EntityType="Self.Yorumlar" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -251,6 +286,10 @@
           <AssociationSet Name="FK_Programlar_ToTable_1" Association="Self.FK_Programlar_ToTable_1">
             <End Role="Ogretmenler" EntitySet="Ogretmenler" />
             <End Role="Programlar" EntitySet="Programlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Yorumlar_ToTable" Association="Self.FK_Yorumlar_ToTable">
+            <End Role="Programlar" EntitySet="Programlar" />
+            <End Role="Yorumlar" EntitySet="Yorumlar" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -335,8 +374,6 @@
           <Property Name="KategoriID" Type="Int32" />
           <Property Name="OgretmenID" Type="Int32" />
           <Property Name="ProgramAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="UstAciklama" Type="Int64" />
-          <Property Name="AltAciklama" Type="Int64" />
           <Property Name="AnaResimYolu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="AltResimYolu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="OgrenciSayisi" Type="Int32" />
@@ -345,6 +382,9 @@
           <NavigationProperty Name="ProgramKategorileri" Relationship="TerapiModel.FK_ProgramKategorileri_ToTable" FromRole="Programlar" ToRole="ProgramKategorileri" />
           <NavigationProperty Name="ProgramKategorileri1" Relationship="TerapiModel.FK_Programlar_ToTable" FromRole="Programlar" ToRole="ProgramKategorileri" />
           <NavigationProperty Name="Ogretmenler" Relationship="TerapiModel.FK_Programlar_ToTable_1" FromRole="Programlar" ToRole="Ogretmenler" />
+          <NavigationProperty Name="Yorumlar" Relationship="TerapiModel.FK_Yorumlar_ToTable" FromRole="Programlar" ToRole="Yorumlar" />
+          <Property Name="UstAciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AltAciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Yorumlar">
           <Key>
@@ -354,6 +394,7 @@
           <Property Name="UserID" Type="Int32" />
           <Property Name="ProgramID" Type="Int32" />
           <Property Name="Yorum" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Programlar" Relationship="TerapiModel.FK_Yorumlar_ToTable" FromRole="Yorumlar" ToRole="Programlar" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
@@ -422,6 +463,12 @@
             <End Role="Ogretmenler" EntitySet="Ogretmenler" />
             <End Role="Programlar" EntitySet="Programlar" />
           </AssociationSet>
+          <EntitySet Name="TanitimYazilari" EntityType="TerapiModel.TanitimYazilari" />
+          <AssociationSet Name="FK_Yorumlar_ToTable" Association="TerapiModel.FK_Yorumlar_ToTable">
+            <End Role="Programlar" EntitySet="Programlar" />
+            <End Role="Yorumlar" EntitySet="Yorumlar" />
+          </AssociationSet>
+          <EntitySet Name="OrnekYazi" EntityType="TerapiModel.OrnekYazi" />
         </EntityContainer>
         <EntityType Name="Slider">
           <Key>
@@ -467,6 +514,8 @@
           <Property Name="OgretmenAdi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="OgretmenDeneyimi" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="Programlar" Relationship="TerapiModel.FK_Programlar_ToTable_1" FromRole="Ogretmenler" ToRole="Programlar" />
+          <Property Name="OgretmenFotografYolu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OgretmenAlan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_Programlar_ToTable_1">
           <End Type="TerapiModel.Ogretmenler" Role="Ogretmenler" Multiplicity="0..1" />
@@ -480,6 +529,37 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="TanitimYazilari">
+          <Key>
+            <PropertyRef Name="TanitimID" />
+          </Key>
+          <Property Name="TanitimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TanitimBaslik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TanitimYazisi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Renk" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ResimYolu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Yorumlar_ToTable">
+          <End Type="TerapiModel.Programlar" Role="Programlar" Multiplicity="0..1" />
+          <End Type="TerapiModel.Yorumlar" Role="Yorumlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Programlar">
+              <PropertyRef Name="ProgramID" />
+            </Principal>
+            <Dependent Role="Yorumlar">
+              <PropertyRef Name="ProgramID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="OrnekYazi">
+          <Key>
+            <PropertyRef Name="OrnekYaziID" />
+          </Key>
+          <Property Name="OrnekYaziID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrnekYaziBaslik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OrnekYaziAciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OrnekYaziVideoLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -554,12 +634,12 @@
           <EntitySetMapping Name="Programlar">
             <EntityTypeMapping TypeName="TerapiModel.Programlar">
               <MappingFragment StoreEntitySet="Programlar">
+                <ScalarProperty Name="AltAciklama" ColumnName="AltAciklama" />
+                <ScalarProperty Name="UstAciklama" ColumnName="UstAciklama" />
                 <ScalarProperty Name="ProgramID" ColumnName="ProgramID" />
                 <ScalarProperty Name="KategoriID" ColumnName="KategoriID" />
                 <ScalarProperty Name="OgretmenID" ColumnName="OgretmenID" />
                 <ScalarProperty Name="ProgramAdi" ColumnName="ProgramAdi" />
-                <ScalarProperty Name="UstAciklama" ColumnName="UstAciklama" />
-                <ScalarProperty Name="AltAciklama" ColumnName="AltAciklama" />
                 <ScalarProperty Name="AnaResimYolu" ColumnName="AnaResimYolu" />
                 <ScalarProperty Name="AltResimYolu" ColumnName="AltResimYolu" />
                 <ScalarProperty Name="OgrenciSayisi" ColumnName="OgrenciSayisi" />
@@ -602,9 +682,32 @@
           <EntitySetMapping Name="Ogretmenler">
             <EntityTypeMapping TypeName="TerapiModel.Ogretmenler">
               <MappingFragment StoreEntitySet="Ogretmenler">
+                <ScalarProperty Name="OgretmenAlan" ColumnName="OgretmenAlan" />
+                <ScalarProperty Name="OgretmenFotografYolu" ColumnName="OgretmenFotografYolu" />
                 <ScalarProperty Name="OgretmenDeneyimi" ColumnName="OgretmenDeneyimi" />
                 <ScalarProperty Name="OgretmenAdi" ColumnName="OgretmenAdi" />
                 <ScalarProperty Name="OgretmenID" ColumnName="OgretmenID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TanitimYazilari">
+            <EntityTypeMapping TypeName="TerapiModel.TanitimYazilari">
+              <MappingFragment StoreEntitySet="TanitimYazilari">
+                <ScalarProperty Name="ResimYolu" ColumnName="ResimYolu" />
+                <ScalarProperty Name="Renk" ColumnName="Renk" />
+                <ScalarProperty Name="TanitimYazisi" ColumnName="TanitimYazisi" />
+                <ScalarProperty Name="TanitimBaslik" ColumnName="TanitimBaslik" />
+                <ScalarProperty Name="TanitimID" ColumnName="TanitimID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrnekYazi">
+            <EntityTypeMapping TypeName="TerapiModel.OrnekYazi">
+              <MappingFragment StoreEntitySet="OrnekYazi">
+                <ScalarProperty Name="OrnekYaziVideoLink" ColumnName="OrnekYaziVideoLink" />
+                <ScalarProperty Name="OrnekYaziAciklama" ColumnName="OrnekYaziAciklama" />
+                <ScalarProperty Name="OrnekYaziBaslik" ColumnName="OrnekYaziBaslik" />
+                <ScalarProperty Name="OrnekYaziID" ColumnName="OrnekYaziID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

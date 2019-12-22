@@ -55,13 +55,20 @@
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <img alt="" src="~/Areas/Admin/assets/images/avatar1_small.jpg">
-                            <span class="username">John Doe</span>
+                            <span class="username">@User.Identity.Name</span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
                             <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
                             <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-                            <li><a href="login.html"><i class="fa fa-key"></i> Log Out</a></li>
+                            <li>
+                                @using (Html.BeginForm("LogOff", "Account",new{Area=""} ,FormMethod.Post,new { id = "logoutForm", @class = "navbar-right" }))
+                                {
+                                @Html.AntiForgeryToken() ;
+                                   <a href="javascript:document.getElementById('logoutForm').submit()">Oturumu kapat</a>
+                                
+                                }
+                            </li>
                         </ul>
                     </li>
                     <!-- user login dropdown end -->

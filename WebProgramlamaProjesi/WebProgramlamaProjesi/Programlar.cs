@@ -18,23 +18,26 @@ namespace WebProgramlamaProjesi
         public Programlar()
         {
             this.ProgramKategorileri = new HashSet<ProgramKategorileri>();
+            this.Yorumlar = new HashSet<Yorumlar>();
         }
     
         public int ProgramID { get; set; }
         public Nullable<int> KategoriID { get; set; }
         public Nullable<int> OgretmenID { get; set; }
         public string ProgramAdi { get; set; }
-        public Nullable<long> UstAciklama { get; set; }
-        public Nullable<long> AltAciklama { get; set; }
         public string AnaResimYolu { get; set; }
         public string AltResimYolu { get; set; }
         public Nullable<int> OgrenciSayisi { get; set; }
         public Nullable<int> Ucret { get; set; }
         public string ProgramSuresi { get; set; }
+        public string UstAciklama { get; set; }
+        public string AltAciklama { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProgramKategorileri> ProgramKategorileri { get; set; }
         public virtual ProgramKategorileri ProgramKategorileri1 { get; set; }
         public virtual Ogretmenler Ogretmenler { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Yorumlar> Yorumlar { get; set; }
     }
 }

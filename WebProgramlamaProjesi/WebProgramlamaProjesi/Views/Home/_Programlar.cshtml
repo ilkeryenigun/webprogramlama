@@ -1,0 +1,32 @@
+﻿@model List<Programlar>
+@{
+    Layout = null;
+}
+@foreach (var item in Model)
+{
+    <div class="single-course">
+        <div class="course-img">
+            <a href="course-details.html"><img class="animated" src="@item.AnaResimYolu" alt=""></a>
+            
+        </div>
+        <div class="course-content">
+            <h4><a href="course-details.html">@item.ProgramAdi</a></h4>
+            <p>@item.UstAciklama</p>
+        </div>
+        <div class="course-position-content">
+            <div class="credit-duration-wrap">
+                <div class="sin-credit-duration">
+                    <i class="fa fa-diamond"></i>
+                    <span>Öğrenci Sayısı : @item.OgrenciSayisi</span>
+                </div>
+                <div class="sin-credit-duration">
+                    <i class="fa fa-clock-o"></i>
+                    <span>Saat : @item.ProgramSuresi</span>
+                </div>
+            </div>
+            <div class="course-btn">
+                <a class="default-btn" href="#">APPLY NOW</a>
+            </div>
+        </div>
+    </div>
+}

@@ -12,13 +12,12 @@ namespace WebProgramlamaProjesi
     using System;
     using System.Collections.Generic;
     
-    public partial class Yorumlar
+    public partial class TanitimYazilari
     {
-        public int YorumID { get; set; }
-        public Nullable<int> UserID { get; set; }
-        public Nullable<int> ProgramID { get; set; }
-        public string Yorum { get; set; }
-    
-        public virtual Programlar Programlar { get; set; }
+        public int TanitimID { get; set; }
+        public string TanitimBaslik { get; set; }
+        public string TanitimYazisi { get; set; }
+        public string Renk { get; set; }
+        public string ResimYolu { get; set; }
     }
 }

@@ -4,16 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace WebProgramlamaProjesi.Areas.Admin.Controllers
+namespace WebProgramlamaProjesi.Areas.Admin
 {
-    [Authorize(Roles = "Admin")]
-    public class YonetimController : Controller
+    public class TanitimYazilariController : Controller
     {
-        // GET: Admin/Yonetim
+        TerapiEntities db = new TerapiEntities();
+        // GET: Admin/TanitimYazilari
         public ActionResult Index()
         {
             return View();
         }
-
     }
 }

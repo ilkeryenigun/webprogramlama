@@ -7,13 +7,12 @@ using System.Web.Mvc;
 namespace WebProgramlamaProjesi.Areas.Admin.Controllers
 {
     [Authorize(Roles = "Admin")]
-    public class YonetimController : Controller
+    public class AdminController : Controller
     {
-        // GET: Admin/Yonetim
+        // GET: Admin/Admin
         public ActionResult Index()
         {
             return View();
         }
-
     }
 }

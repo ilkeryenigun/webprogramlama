@@ -23,6 +23,8 @@ namespace WebProgramlamaProjesi
         public int OgretmenID { get; set; }
         public string OgretmenAdi { get; set; }
         public string OgretmenDeneyimi { get; set; }
+        public string OgretmenFotografYolu { get; set; }
+        public string OgretmenAlan { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Programlar> Programlar { get; set; }

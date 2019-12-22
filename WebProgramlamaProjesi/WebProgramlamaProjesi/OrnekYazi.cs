@@ -12,13 +12,11 @@ namespace WebProgramlamaProjesi
     using System;
     using System.Collections.Generic;
     
-    public partial class Yorumlar
+    public partial class OrnekYazi
     {
-        public int YorumID { get; set; }
-        public Nullable<int> UserID { get; set; }
-        public Nullable<int> ProgramID { get; set; }
-        public string Yorum { get; set; }
-    
-        public virtual Programlar Programlar { get; set; }
+        public int OrnekYaziID { get; set; }
+        public string OrnekYaziBaslik { get; set; }
+        public string OrnekYaziAciklama { get; set; }
+        public string OrnekYaziVideoLink { get; set; }
     }
 }

@@ -11,7 +11,7 @@
         <EntityTypeShape EntityType="TerapiModel.AspNetUserLogins" Width="1.5" PointX="4.625" PointY="2.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TerapiModel.AspNetUsers" Width="1.5" PointX="2.25" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TerapiModel.ProgramKategorileri" Width="1.5" PointX="2.625" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TerapiModel.Programlar" Width="1.5" PointX="4.5" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TerapiModel.Programlar" Width="1.5" PointX="4.625" PointY="5.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TerapiModel.Yorumlar" Width="1.5" PointX="6.5" PointY="6" IsExpanded="true" />
         <AssociationConnector Association="TerapiModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="TerapiModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
@@ -21,6 +21,9 @@
         <AssociationConnector Association="TerapiModel.FK_Programlar_ToTable" />
         <EntityTypeShape EntityType="TerapiModel.Ogretmenler" Width="1.5" PointX="7" PointY="3.75" />
         <AssociationConnector Association="TerapiModel.FK_Programlar_ToTable_1" />
+        <EntityTypeShape EntityType="TerapiModel.TanitimYazilari" Width="1.5" PointX="1.875" PointY="8.25" />
+        <AssociationConnector Association="TerapiModel.FK_Yorumlar_ToTable" />
+        <EntityTypeShape EntityType="TerapiModel.OrnekYazi" Width="1.5" PointX="7.375" PointY="8.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -1,0 +1,25 @@
+﻿@model List<Ogretmenler>
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model)
+{
+    <div class="custom-col-5">
+        <div class="single-teacher mb-30">
+            <div class="teacher-img">
+                <img src="@item.OgretmenFotografYolu" alt="">
+            </div>
+            <div class="teacher-content-visible">
+                <h4>@item.OgretmenAdi</h4>
+                <h5>@item.OgretmenDeneyimi</h5>
+            </div>
+            <div class="teacher-content-wrap">
+                <div class="teacher-content">
+                    <h4>@item.OgretmenAdi</h4>
+                    <h5>@item.OgretmenAlan</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -35,5 +35,7 @@ namespace WebProgramlamaProjesi
         public virtual DbSet<Yorumlar> Yorumlar { get; set; }
         public virtual DbSet<Slider> Slider { get; set; }
         public virtual DbSet<Ogretmenler> Ogretmenler { get; set; }
+        public virtual DbSet<TanitimYazilari> TanitimYazilari { get; set; }
+        public virtual DbSet<OrnekYazi> OrnekYazi { get; set; }
     }
 }

@@ -1,0 +1,18 @@
+﻿@model List<TanitimYazilari>
+@{
+    Layout = null;
+}
+@foreach (var item in Model)
+{
+    <div class="col-lg-3 col-md-6">
+        <div class ="@item.Renk">
+            <div class="choose-img">
+                <img class="animated" src="/assets/img/icon-img/service-1.png" alt="">
+            </div>
+            <div class="choose-content">
+                <h3>@item.TanitimBaslik</h3>
+                <p>@item.TanitimYazisi</p>
+            </div>
+        </div>
+    </div>
+}

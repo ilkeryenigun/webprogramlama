@@ -1,0 +1,28 @@
+﻿@model WebProgramlamaProjesi.Areas.Admin.Models.RolKullaniciEkleModel
+@{
+    ViewBag.Title = "RolKullaniciEkle";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section id="container">
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="col-lg-12">
+                <section class="panel">
+
+                    <div class="panel-body">
+                        @using (Html.BeginForm("RolKullaniciEkle", "RolYonetim", FormMethod.Post))
+                        {
+                            @Html.LabelFor(m => m.KullaniciAdi) @Html.TextBoxFor(m => m.KullaniciAdi)
+                            <br />
+
+                            @Html.LabelFor(m => m.RolAdi) @Html.TextBoxFor(m => m.RolAdi)
+                            <input type="submit" />
+                        }
+
+                    </div>
+                </section>
+            </div>
+        </section>
+    </section>
+</section>

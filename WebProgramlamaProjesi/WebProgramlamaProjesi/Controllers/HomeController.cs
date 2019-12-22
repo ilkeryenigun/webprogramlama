@@ -34,6 +34,7 @@ namespace WebProgramlamaProjesi.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Kullanici")]
         public ActionResult Iletisim()
         {
             return View();
@@ -42,6 +43,30 @@ namespace WebProgramlamaProjesi.Controllers
         public ActionResult _Slider()
         {
             var model = db.Slider.OrderByDescending(x => x.SliderID).ToList();
+            return View(model);
+        }
+        [ChildActionOnly]
+        public ActionResult _TanitimYazilari()
+        {
+            var model = db.TanitimYazilari.OrderBy(x => x.TanitimID).ToList();
+            return View(model);
+        }
+        [ChildActionOnly]
+        public ActionResult _OrnekYazi()
+        {
+            var model = db.OrnekYazi.OrderBy(x => x.OrnekYaziID).ToList();
+            return View(model);
+        }
+        [ChildActionOnly]
+        public ActionResult _Programlar()
+        {
+            var model = db.Programlar.OrderBy(x => x.ProgramID).ToList();
+            return View(model);
+        }
+        [ChildActionOnly]
+        public ActionResult _Ogretmenler()
+        {
+            var model = db.Ogretmenler.OrderBy(x => x.OgretmenID).ToList();
             return View(model);
         }
     }
