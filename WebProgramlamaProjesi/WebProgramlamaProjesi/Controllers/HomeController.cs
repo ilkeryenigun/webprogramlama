@@ -11,7 +11,10 @@ namespace WebProgramlamaProjesi.Controllers
         TerapiEntities db = new TerapiEntities();
         public ActionResult Anasayfa()
         {
+            var routeData = RouteData.Values;
+            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("tr");
             return View();
+           
         }
 
         public ActionResult Hakkimizda()
