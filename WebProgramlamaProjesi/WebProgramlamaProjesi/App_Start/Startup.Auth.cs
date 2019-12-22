@@ -58,11 +58,11 @@ namespace WebProgramlamaProjesi
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "264713634824-kv8vtdul5o7hkarb3o17rl1hr2ejievf.apps.googleusercontent.com",
+                ClientSecret = "KsaQrHuHgWEiSGuArldgVF_c"
+            });
         }
     }
 }

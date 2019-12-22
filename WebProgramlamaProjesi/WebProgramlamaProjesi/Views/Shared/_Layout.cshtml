@@ -1,6 +1,8 @@
 ﻿<!doctype html>
 <html class="no-js" lang="zxx">
 <head>
+
+    @RenderSection("Scripts", false)
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Glaxdu - Education Bootstrap 4 Template</title>
@@ -25,6 +27,7 @@
 
     <!-- Modernizer JS -->
     <script src="~/assets/js/vendor/modernizr-2.8.3.min.js"></script>
+
 </head>
 <body>
     <header class="header-area">
@@ -41,11 +44,11 @@
                     </div>
                     <div class="col-lg-6 col-md-5 col-12 col-sm-4">
                         <div class="login-register">
+                            
                             <ul>
-                                <li><a href="login-register.html">Giriş</a></li>
-                                <li><a href="login-register.html">Kayıt</a></li>
-                            </ul>
-                        </div>
+                                <li>  @Html.Partial("_LoginPartial")</li>
+</ul>
+</div>
                     </div>
                 </div>
             </div>
@@ -56,7 +59,7 @@
                     <div class="col-lg-2 col-md-6 col-4">
                         <div class="logo">
                             <a href="@Url.Action("Anasayfa", "Home")"><img src="/assets/img/logo/logo.png" />  </a>
-                            
+
                         </div>
                     </div>
                     <div class="col-lg-10 col-md-6 col-8">
@@ -86,7 +89,8 @@
                                             @Html.ActionLink("Blog", "Blog", "Home")
                                         </li>
                                         <li>@Html.ActionLink("İletişim", "Iletisim", "Home")</li>
-                                    </ul>
+
+</ul>
                                 </nav>
                             </div>
                             <div class="cart-search-wrap">
@@ -159,7 +163,7 @@
                                     @Html.ActionLink("Anasayfa", "Anasayfa", "Home")
                                 </li>
                                 <li>@Html.ActionLink("Hakkımızda", "Hakkimizda", "Home")</li>
-                                
+
                                 <li>
                                     <a href="#">Pages</a>
                                     <ul>
@@ -195,8 +199,10 @@
                                 <h4>HAKKIMIZDA</h4>
                             </div>
                             <div class="footer-about">
-                                <p>Bireylere ihtiyaç duydukları psikolojik desteği sunmak ve çalışmakta olan meslektaşlarımıza
-                                mesleki gelişimlerini destekleyecek      hizmeti sağlamaktayız. </p>
+                                <p>
+                                    Bireylere ihtiyaç duydukları psikolojik desteği sunmak ve çalışmakta olan meslektaşlarımıza
+                                    mesleki gelişimlerini destekleyecek      hizmeti sağlamaktayız.
+                                </p>
                                 <div class="f-contact-info">
                                     <div class="single-f-contact-info">
                                         <i class="fa fa-home"></i>

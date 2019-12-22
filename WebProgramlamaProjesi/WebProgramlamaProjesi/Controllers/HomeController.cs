@@ -8,6 +8,7 @@ namespace WebProgramlamaProjesi.Controllers
 {
     public class HomeController : Controller
     {
+        TerapiEntities db = new TerapiEntities();
         public ActionResult Anasayfa()
         {
             return View();
@@ -40,9 +41,8 @@ namespace WebProgramlamaProjesi.Controllers
         [ChildActionOnly]
         public ActionResult _Slider()
         {
-            TerapiEntities db = new TerapiEntities();
-            var liste=db.Slider.Where(x => x.BaslangicTarih < DateTime.Now && x.BitisTarih > DateTime.Now).OrderByDescending(x => x.SliderID);
-            return View(liste);
+            var model = db.Slider.OrderByDescending(x => x.SliderID).ToList();
+            return View(model);
         }
     }
 }
