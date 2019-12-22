@@ -48,6 +48,38 @@ namespace WebProgramlamaProjesi.Areas.Admin
             }
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var model = db.Slider.Find(id);
+            
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult Edit(Slider model)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Slider.Attach(model);
+                db.Entry(model).State=System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            var model=db.Slider.Find(id);
+            return View(model);
+        }
+        [HttpGet]
+        public ActionResult DeleteConfirm(int id)
+        {
+            var model = db.Slider.Find(id);
+            db.Slider.Remove(model);
+            db.SaveChanges();
+            return RedirectToAction("Index") ;
+        }
 
     }
 }

@@ -15,19 +15,15 @@
                 <div class="col-sm-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            Editable Table
-                            <span class="tools pull-right">
-                                <a href="javascript:;" class="fa fa-chevron-down"></a>
-                                <a href="javascript:;" class="fa fa-cog"></a>
-                                <a href="javascript:;" class="fa fa-times"></a>
-                            </span>
+                            SLIDER LİSTESİ
+                            
                         </header>
                         <div class="panel-body">
                             <div class="adv-table editable-table ">
                                 <div class="clearfix">
                                     <div class="btn-group">
                                         <button id="editable-sample_new" class="btn btn-primary" onclick="location.href='@Url.Action("Ekle","Slider")'">
-                                            Add New <i class="fa fa-plus"></i>
+                                            Yeni Slider Ekle <i class="fa fa-plus"></i>
                                         </button>
                                     </div>
                                 </div>
@@ -49,17 +45,17 @@
                                     <tbody>
                                         @foreach (var item in Model)
                                         {
-                                            <tr class="">
-                                                <td>@item.SliderID</td>
-                                                <td>@item.SliderBaslik</td>
-                                                <td>@item.SliderAciklama</td>
-                                                <td class="center">@item.SliderResimYolu</td>
-                                                <td>@item.BaslangicTarih</td>
-                                                <td>@item.BitisTarih</td>
+                                        <tr class="">
+                                            <td>@item.SliderID</td>
+                                            <td>@item.SliderBaslik</td>
+                                            <td>@item.SliderAciklama</td>
+                                            <td class="center">@item.SliderResimYolu</td>
+                                            <td>@item.BaslangicTarih</td>
+                                            <td>@item.BitisTarih</td>
 
-                                                <td><a class="edit" href="javascript:;">Edit</a></td>
-                                                <td><a class="delete" href="javascript:;">Delete</a></td>
-                                            </tr>
+                                            <td>@Html.ActionLink("Düzenle", "Edit", "Slider",new {id=item.SliderID} ,new { @class = "edit" })</td>
+                                            <td>@Html.ActionLink("Sil", "Delete", "Slider", new {id=item.SliderID}, new { @class = "delete" })</td>
+                                        </tr>
 
                                         }
                                     </tbody>
