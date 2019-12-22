@@ -14,6 +14,12 @@ namespace WebProgramlamaProjesi
     
     public partial class Programlar
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Programlar()
+        {
+            this.ProgramKategorileri = new HashSet<ProgramKategorileri>();
+        }
+    
         public int ProgramID { get; set; }
         public Nullable<int> KategoriID { get; set; }
         public Nullable<int> OgretmenID { get; set; }
@@ -25,5 +31,10 @@ namespace WebProgramlamaProjesi
         public Nullable<int> OgrenciSayisi { get; set; }
         public Nullable<int> Ucret { get; set; }
         public string ProgramSuresi { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProgramKategorileri> ProgramKategorileri { get; set; }
+        public virtual ProgramKategorileri ProgramKategorileri1 { get; set; }
+        public virtual Ogretmenler Ogretmenler { get; set; }
     }
 }

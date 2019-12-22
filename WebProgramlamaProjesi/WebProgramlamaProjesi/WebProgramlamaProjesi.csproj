@@ -1668,6 +1668,7 @@
     <Content Include="TerapiModel.edmx.diagram">
       <DependentUpon>TerapiModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Views\Home\_Slider.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

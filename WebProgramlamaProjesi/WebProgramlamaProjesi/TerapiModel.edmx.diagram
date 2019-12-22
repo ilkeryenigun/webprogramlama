@@ -5,18 +5,22 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="c80c607539a249a7b53a071e2f04bc36" Name="Diagram1">
-        <EntityTypeShape EntityType="TerapiModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TerapiModel.AspNetRoles" Width="1.5" PointX="0.5" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TerapiModel.AspNetUserClaims" Width="1.5" PointX="4.5" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TerapiModel.AspNetUserLogins" Width="1.5" PointX="4.5" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TerapiModel.AspNetUsers" Width="1.5" PointX="2.375" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TerapiModel.ProgramKategorileri" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TerapiModel.Programlar" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TerapiModel.Yorumlar" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TerapiModel.C__MigrationHistory" Width="1.5" PointX="0.5" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="TerapiModel.AspNetRoles" Width="1.5" PointX="0.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TerapiModel.AspNetUserClaims" Width="1.5" PointX="4.375" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TerapiModel.AspNetUserLogins" Width="1.5" PointX="4.625" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TerapiModel.AspNetUsers" Width="1.5" PointX="2.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TerapiModel.ProgramKategorileri" Width="1.5" PointX="2.625" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TerapiModel.Programlar" Width="1.5" PointX="4.5" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TerapiModel.Yorumlar" Width="1.5" PointX="6.5" PointY="6" IsExpanded="true" />
         <AssociationConnector Association="TerapiModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="TerapiModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="TerapiModel.AspNetUserRoles" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="TerapiModel.Slider" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="TerapiModel.Slider" Width="1.5" PointX="7.125" PointY="0.75" />
+        <AssociationConnector Association="TerapiModel.FK_ProgramKategorileri_ToTable" />
+        <AssociationConnector Association="TerapiModel.FK_Programlar_ToTable" />
+        <EntityTypeShape EntityType="TerapiModel.Ogretmenler" Width="1.5" PointX="7" PointY="3.75" />
+        <AssociationConnector Association="TerapiModel.FK_Programlar_ToTable_1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

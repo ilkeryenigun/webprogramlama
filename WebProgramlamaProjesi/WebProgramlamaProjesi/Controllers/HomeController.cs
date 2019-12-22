@@ -37,5 +37,12 @@ namespace WebProgramlamaProjesi.Controllers
         {
             return View();
         }
+        [ChildActionOnly]
+        public ActionResult _Slider()
+        {
+            TerapiEntities db = new TerapiEntities();
+            var liste=db.Slider.Where(x => x.BaslangicTarih < DateTime.Now && x.BitisTarih > DateTime.Now).OrderByDescending(x => x.SliderID);
+            return View(liste);
+        }
     }
 }
