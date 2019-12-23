@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="aileTerapisi" xml:space="preserve">
-    <value>Family Therapy</value>
+    <value>Aile Terapisi</value>
   </data>
   <data name="anasayfa" xml:space="preserve">
     <value>Homepage</value>
@@ -127,16 +127,16 @@
     <value>Bilişsel Davranışçı Terapi</value>
   </data>
   <data name="hakkimizda" xml:space="preserve">
-    <value>About Us</value>
+    <value>Hakkımızda</value>
   </data>
   <data name="iletisim" xml:space="preserve">
-    <value>Contact</value>
+    <value>İletişim</value>
   </data>
   <data name="kaydol" xml:space="preserve">
-    <value>Register</value>
+    <value>Kaydol</value>
   </data>
   <data name="merhaba" xml:space="preserve">
-    <value>Hello</value>
+    <value>Merhaba</value>
   </data>
   <data name="ogretmenlerimiz" xml:space="preserve">
     <value>Our Teachers</value>
@@ -145,25 +145,25 @@
     <value>Öğretmenlerimiz hakkında bilgiler edinebilirsiniz.</value>
   </data>
   <data name="oturumAc" xml:space="preserve">
-    <value>Login</value>
+    <value>Oturum Aç</value>
   </data>
   <data name="oturumu_kapat" xml:space="preserve">
-    <value>Logoff</value>
+    <value>Oturumu Kapat</value>
   </data>
   <data name="oyunSiddeti" xml:space="preserve">
     <value>Oyun Şiddeti</value>
   </data>
   <data name="programlar" xml:space="preserve">
-    <value>Programs</value>
+    <value>Programlar</value>
   </data>
   <data name="programlarimiz" xml:space="preserve">
-    <value>Therapy Programs</value>
+    <value>Terapi Programlarımız</value>
   </data>
   <data name="programlarimiz_Aciklama" xml:space="preserve">
     <value>Dil ve konuşma terapistleri olarak erken çocukluk döneminden erişkinliğe kadar uzanan geniş bir yelpazede
 iletişim, dil, konuşma, ses ve yutma terapisi alanında çalışmalar yürütüyoruz.</value>
   </data>
   <data name="travmaTerapisi" xml:space="preserve">
-    <value>Trauma Therapy</value>
+    <value>Travma Terapisi</value>
   </data>
 </root>

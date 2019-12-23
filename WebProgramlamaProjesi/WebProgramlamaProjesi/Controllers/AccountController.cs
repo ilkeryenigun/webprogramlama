@@ -163,7 +163,7 @@ namespace WebProgramlamaProjesi.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Hesabınızı onaylayın", "Lütfen hesabınızı onaylamak için <a href=\"" + callbackUrl + "\">buraya tıklayın</a>");
 
-                    return RedirectToAction("Anasayfa", "Home");
+                    return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
             }
@@ -392,7 +392,7 @@ namespace WebProgramlamaProjesi.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Anasayfa", "Home");
+            return RedirectToAction("Index", "Home");
         }
 
         //
@@ -449,7 +449,7 @@ namespace WebProgramlamaProjesi.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Anasayfa", "Home");
+            return RedirectToAction("Index", "Home");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult

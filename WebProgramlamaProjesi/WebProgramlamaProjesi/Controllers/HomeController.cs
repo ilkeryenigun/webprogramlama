@@ -9,10 +9,8 @@ namespace WebProgramlamaProjesi.Controllers
     public class HomeController : Controller
     {
         TerapiEntities db = new TerapiEntities();
-        public ActionResult Anasayfa()
+        public ActionResult Index()
         {
-            var routeData = RouteData.Values;
-            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("tr");
             return View();
            
         }

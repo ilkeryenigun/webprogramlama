@@ -37,5 +37,6 @@ namespace WebProgramlamaProjesi
         public virtual DbSet<Ogretmenler> Ogretmenler { get; set; }
         public virtual DbSet<TanitimYazilari> TanitimYazilari { get; set; }
         public virtual DbSet<OrnekYazi> OrnekYazi { get; set; }
+        public virtual DbSet<AdminMenusu> AdminMenusu { get; set; }
     }
 }

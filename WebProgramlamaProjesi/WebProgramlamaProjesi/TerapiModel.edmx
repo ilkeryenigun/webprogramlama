@@ -15,6 +15,14 @@
           <Property Name="Model" Type="varbinary(max)" Nullable="false" />
           <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
         </EntityType>
+        <EntityType Name="AdminMenusu">
+          <Key>
+            <PropertyRef Name="KategoriID" />
+          </Key>
+          <Property Name="KategoriID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KategoriAdi" Type="nvarchar(max)" />
+          <Property Name="KategoriYolu" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="AspNetRoles">
           <Key>
             <PropertyRef Name="Id" />
@@ -247,6 +255,7 @@
         </Association>
         <EntityContainer Name="TerapiModelStoreContainer">
           <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AdminMenusu" EntityType="Self.AdminMenusu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
@@ -469,6 +478,7 @@
             <End Role="Yorumlar" EntitySet="Yorumlar" />
           </AssociationSet>
           <EntitySet Name="OrnekYazi" EntityType="TerapiModel.OrnekYazi" />
+          <EntitySet Name="AdminMenusu" EntityType="TerapiModel.AdminMenusu" />
         </EntityContainer>
         <EntityType Name="Slider">
           <Key>
@@ -559,6 +569,14 @@
           <Property Name="OrnekYaziBaslik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="OrnekYaziAciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="OrnekYaziVideoLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AdminMenusu">
+          <Key>
+            <PropertyRef Name="KategoriID" />
+          </Key>
+          <Property Name="KategoriID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KategoriAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="KategoriYolu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -708,6 +726,15 @@
                 <ScalarProperty Name="OrnekYaziAciklama" ColumnName="OrnekYaziAciklama" />
                 <ScalarProperty Name="OrnekYaziBaslik" ColumnName="OrnekYaziBaslik" />
                 <ScalarProperty Name="OrnekYaziID" ColumnName="OrnekYaziID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdminMenusu">
+            <EntityTypeMapping TypeName="TerapiModel.AdminMenusu">
+              <MappingFragment StoreEntitySet="AdminMenusu">
+                <ScalarProperty Name="KategoriYolu" ColumnName="KategoriYolu" />
+                <ScalarProperty Name="KategoriAdi" ColumnName="KategoriAdi" />
+                <ScalarProperty Name="KategoriID" ColumnName="KategoriID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

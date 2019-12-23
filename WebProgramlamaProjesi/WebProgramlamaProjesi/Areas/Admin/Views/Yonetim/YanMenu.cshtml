@@ -1,0 +1,13 @@
+﻿@model List<AdminMenusu>
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model)
+{<li>
+        <a class="active" href="index.html">
+            <i class="fa fa-dashboard"></i>
+            <span>@item.KategoriAdi</span>
+        </a>
+    </li>
+}

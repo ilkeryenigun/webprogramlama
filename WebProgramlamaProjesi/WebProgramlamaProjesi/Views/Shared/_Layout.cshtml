@@ -44,11 +44,14 @@
                     </div>
                     <div class="col-lg-6 col-md-5 col-12 col-sm-4">
                         <div class="login-register">
-                            
                             <ul>
+
+                                <li>@Html.ActionLink("English", "Index", "Home", new { diluzanti = "en" }, null)</li>
+                                <li>@Html.ActionLink("Türkçe", "Index", "Home", new { diluzanti = "tr" }, null)</li>
                                 <li>  @Html.Partial("_LoginPartial")</li>
-</ul>
-</div>
+
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -58,7 +61,7 @@
                 <div class="row">
                     <div class="col-lg-2 col-md-6 col-4">
                         <div class="logo">
-                            <a href="@Url.Action("Anasayfa", "Home")"><img src="/assets/img/logo/logo.png" />  </a>
+                            <a href="@Url.Action("Index", "Home")"><img src="/assets/img/logo/logo.png" />  </a>
 
                         </div>
                     </div>
@@ -68,24 +71,12 @@
                                 <nav>
                                     <ul>
                                         <li>
-                                            @Html.ActionLink("Anasayfa", "Anasayfa", "Home")
+                                            @Html.ActionLink(Resources.Index.anasayfa, "Index", "Home")
                                         </li>
-                                        <li>@Html.ActionLink("Hakkımızda", "Hakkimizda", "Home")</li>
-                                        <li>
-                                            <a href="#"> PAGES <i class="fa fa-angle-down"></i> </a>
-                                            <ul class="submenu">
-                                                <li><a href="event.html">event page</a></li>
-                                                <li><a href="course-details.html">course details</a></li>
-                                                <li><a href="event-details.html">event details</a></li>
-                                                <li><a href="cart.html">cart page</a></li>
-                                                <li><a href="checkout.html">checkout</a></li>
-                                                <li><a href="wishlist.html">wishlist</a></li>
-                                                <li><a href="login-register.html">login / register</a></li>
-                                            </ul>
-                                        </li>
-                                        <li> @Html.ActionLink("Programlar", "Programlar", "Home")</li>
+                                        <li>@Html.ActionLink(Resources.Index.hakkimizda, "Hakkimizda", "Home")</li>
+                                     
                                         
-                                        <li>@Html.ActionLink("İletişim", "Iletisim", "Home")</li>
+                                        <li>@Html.ActionLink(Resources.Index.iletisim, "Iletisim", "Home")</li>
 
 </ul>
                                 </nav>
@@ -98,16 +89,13 @@
                         <nav id="mobile-menu-active">
                             <ul class="menu-overflow">
                                 <li>
-                                    @Html.ActionLink("Anasayfa", "Anasayfa", "Home")
+                                    @Html.ActionLink(Resources.Index.anasayfa, "Index", "Home")
                                 </li>
-                                <li>@Html.ActionLink("Hakkımızda", "Hakkimizda", "Home")</li>
+                                <li>@Html.ActionLink(Resources.Index.hakkimizda, "Hakkimizda", "Home")</li>
 
-                                <li>@Html.ActionLink("Hakkımızda", "About", "Home")</li>
-                                <li>
-                                    @Html.ActionLink("Blog", "Blog", "Home")
-                                </li>
+                               
                                 
-                                <li>@Html.ActionLink("İletişim", "Iletisim", "Home")</li>
+                                <li>@Html.ActionLink(Resources.Index.iletisim, "Iletisim", "Home")</li>
                             </ul>
                         </nav>
                     </div>
@@ -154,9 +142,7 @@
                             </div>
                             <div class="footer-list">
                                 <ul>
-                                    <li>@Html.ActionLink("Anasayfa", "Anasayfa", "Home")</li>
-                                    <li> @Html.ActionLink("Programlar", "Programlar", "Home")</li>
-                                    <li>  @Html.ActionLink("Blog", "Blog", "Home")</li>
+                                    <li>@Html.ActionLink("Anasayfa", "Index", "Home")</li>
                                     <li>@Html.ActionLink("Hakkımızda", "Hakkimizda", "Home")</li>
 
                                 </ul>
